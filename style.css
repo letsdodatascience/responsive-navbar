@@ -44,6 +44,18 @@ header {
     z-index: 999;
 }
 
+/* changed this from the tutorial video to
+   allow it to gain focus, making it tabbable */
+.nav-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+    outline: 3px solid rgba(lightblue, .75);
+}
+
 .nav-toggle {
     display: none;
 }
@@ -149,7 +161,14 @@ nav a:hover {
     }
 
     nav {
-        all: unset;
+        /* all: unset; */
+        position: relative;
+        text-align: left;
+        transition: none;
+        transform: scale(1,1);
+        background: none;
+        top: initial;
+        left: initial;
         grid-column: 3 / 4;
         display: flex;
         justify-content: flex-end;
@@ -162,6 +181,10 @@ nav a:hover {
     nav a {
         opacity: 1;
         position: relative;
+    }
+
+    nav a:hover {
+        color: var(--link-hover-color)
     }
 
     nav ul {
